@@ -8,7 +8,7 @@
 
 
 import pickle
-import numpy
+import numpy as np
 import matplotlib.pyplot as plt
 import sys
 sys.path.append("../tools/")
@@ -48,24 +48,26 @@ data_dict.pop("TOTAL", 0)
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
 feature_1 = "salary"
 feature_2 = "exercised_stock_options"
+f3 = 'total_payments'
 poi  = "poi"
 features_list = [poi, feature_1, feature_2]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
-
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
 ### (as it's currently written, the line below assumes 2 features)
 for f1, f2 in finance_features:
-    plt.scatter( f1, f2 )
+    plt.scatter( f1, f2)
 plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
 
-
+from sklearn import cluster
+clf = cluster.KMeans(n_clusters=2).fit(finance_features)
+pred = clf.predict(finance_features)
 
 
 ### rename the "name" parameter when you change the number of features
@@ -74,3 +76,20 @@ try:
     Draw(pred, finance_features, poi, mark_poi=False, name="clusters.pdf", f1_name=feature_1, f2_name=feature_2)
 except NameError:
     print "no predictions object named pred found, no clusters to plot"
+
+
+from sklearn import preprocessing
+
+data_array = featureFormat( data_dict, features_list )
+label, features = targetFeatureSplit(data_array)
+
+min_max_scaler = preprocessing.MinMaxScaler()
+features_scaled = min_max_scaler.fit_transform(features)
+
+#now i can just apply that to an array with just the values we want to find scaled
+
+sub_feature_set = np.array([[200000, 1000000]])
+subset_f = min_max_scaler.transform(sub_feature_set)
+print subset_f
+
+

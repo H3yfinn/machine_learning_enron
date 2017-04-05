@@ -38,6 +38,23 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+x  = accuracy_score(pred, labels_test)
+
+f = vectorizer.get_feature_names()
+c=-1
+for i in clf.feature_importances_:
+    c += 1
+    if i > 0.1:
+        print 'word', f[c]
+        print 'f imp', i
+        
 
 
 
+#cv = feature_extraction.text.TfidfVectorizer(stop_words='english')
+#x= cv.fit_transform(word_data)        

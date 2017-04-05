@@ -1,0 +1,149 @@
+classifier: Adaboost
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.93      0.89      0.91        28
+        Poi       0.00      0.00      0.00         2
+
+avg / total       0.86      0.83      0.85        30
+
+accuracy= 0.833333333333
+paramaters: {'SEL__k': 14, 'CLF__learning_rate': 2, 'CLF__n_estimators': 100}
+training time: 228.918 s
+classifier: Adaboost
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.92      0.82      0.87        28
+        Poi       0.00      0.00      0.00         2
+
+avg / total       0.86      0.77      0.81        30
+
+accuracy= 0.766666666667
+paramaters: {'SEL__n_components': 12, 'CLF__learning_rate': 2, 'CLF__n_estimators': 50}
+training time: 174.352 s
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+classifier: Decision Tree Classifier
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.89      0.93        28
+        Poi       0.25      0.50      0.33         2
+
+avg / total       0.91      0.87      0.89        30
+
+accuracy= 0.866666666667
+paramaters: {'SEL__k': 8, 'CLF__max_depth': 500, 'CLF__min_samples_split': 1}
+training time: 18.324 s
+classifier: Decision Tree Classifier
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.93      0.89      0.91        28
+        Poi       0.00      0.00      0.00         2
+
+avg / total       0.86      0.83      0.85        30
+
+accuracy= 0.833333333333
+paramaters: {'SEL__n_components': 10, 'CLF__max_depth': 500, 'CLF__min_samples_split': 1}
+training time: 15.369 s
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+classifier: RandomForestClassifier
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.93      0.95        28
+        Poi       0.33      0.50      0.40         2
+
+avg / total       0.92      0.90      0.91        30
+
+accuracy= 0.9
+paramaters: {'SEL__k': 11, 'CLF__n_estimators': 10, 'CLF__max_depth': 5, 'CLF__random_state': 42, 'CLF__class_weight': {0: 1, 1: 4}, 'CLF__min_samples_split': 10}
+training time: 1314.301 s
+classifier: RandomForestClassifier
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.93      0.95        28
+        Poi       0.33      0.50      0.40         2
+
+avg / total       0.92      0.90      0.91        30
+
+accuracy= 0.9
+paramaters: {'CLF__n_estimators': 10, 'SEL__n_components': 9, 'CLF__max_depth': 1, 'CLF__random_state': 42, 'CLF__class_weight': {0: 1, 1: 4}, 'CLF__min_samples_split': 1}
+training time: 1051.153 s
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+classifier: SVM
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.86      0.91        28
+        Poi       0.20      0.50      0.29         2
+
+avg / total       0.91      0.83      0.86        30
+
+accuracy= 0.833333333333
+paramaters: {'CLF__gamma': 1, 'SEL__k': 9, 'CLF__C': 32}
+training time: 24.931 s
+classifier: SVM
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.86      0.91        28
+        Poi       0.20      0.50      0.29         2
+
+avg / total       0.91      0.83      0.86        30
+
+accuracy= 0.833333333333
+paramaters: {'CLF__gamma': 1, 'SEL__n_components': 9, 'CLF__C': 32}
+training time: 22.149 s
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+classifier: GaussNB
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.96      0.96        28
+        Poi       0.50      0.50      0.50         2
+
+avg / total       0.93      0.93      0.93        30
+
+accuracy= 0.933333333333
+paramaters: {'SEL__n_components': 9}
+training time: 0.423 s
+classifier: GaussNB
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.95      0.75      0.84        28
+        Poi       0.12      0.50      0.20         2
+
+avg / total       0.90      0.73      0.80        30
+
+accuracy= 0.733333333333
+paramaters: {'SEL__k': 15}
+training time: 0.483 s
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+classifier: LogisticRegression
+Selector: Kbest
+             precision    recall  f1-score   support
+
+     NonPoi       0.96      0.93      0.95        28
+        Poi       0.33      0.50      0.40         2
+
+avg / total       0.92      0.90      0.91        30
+
+accuracy= 0.9
+paramaters: {'SEL__k': 14, 'CLF__C': 10000, 'CLF__class_weight': None, 'CLF__random_state': 42}
+training time: 9.861 s
+classifier: LogisticRegression
+Selector: PCA
+             precision    recall  f1-score   support
+
+     NonPoi       0.97      1.00      0.98        28
+        Poi       1.00      0.50      0.67         2
+
+avg / total       0.97      0.97      0.96        30
+
+accuracy= 0.966666666667
+paramaters: {'SEL__n_components': 8, 'CLF__C': 32, 'CLF__class_weight': None, 'CLF__random_state': 42}
+training time: 8.055 s

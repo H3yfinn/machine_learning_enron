@@ -4,6 +4,7 @@ import os
 import pickle
 import re
 import sys
+from sklearn import feature_extraction
 
 sys.path.append( "../tools/" )
 from parse_out_email_text import parseOutText
@@ -41,12 +42,24 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
-        temp_counter += 1
         if temp_counter < 200:
-            path = os.path.join('..', path[:-1])
-            print path
+            #path = os.path.join('..', path[:-1])
+            path = '../' + path[:-2] + '_'
             email = open(path, "r")
+            text = parseOutText(email)
+            print text
+            #text = [x for x in text if x not in ["sara", "shackleton", "chris", "germani"]]
+            #text.replace(["sara", "shackleton", "chris", "germani"], '')
 
+            for w in ["sara", "shackleton", "chris", "germani", 'sshacklensf', 'cgermannsf']:
+                text = text.replace(w, '')
+            print text
+            word_data.append(text)
+            
+            if name == 'sara':
+                from_data.append('0')
+            else:
+                from_data.append('1')
             ### use parseOutText to extract the text from the opened email
 
             ### use str.replace() to remove any instances of the words
@@ -68,8 +81,15 @@ pickle.dump( from_data, open("your_email_authors.pkl", "w") )
 
 
 
+#tfldf = feature_extraction.text.TfidfVectorizer()
+#x = tfldf.fit_transform(word_data)
 
 
+cv = feature_extraction.text.TfidfVectorizer(stop_words='english')
+x= cv.fit_transform(word_data)
 ### in Part 4, do TfIdf vectorization here
+
+
+
 
 
